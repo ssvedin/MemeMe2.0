@@ -112,20 +112,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
         
     }
-}
-
-func save() {
-    // Create the meme
-    let meme = Meme(topText: textField1.text!, bottomText: textField2.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
-}
-
-func generateMemedImage() -> UIImage {
-    // Render view to an image
-    UIGraphicsBeginImageContext(self.view.frame.size)
-    view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-    let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-    UIGraphicsEndImageContext()
     
-    return memedImage
+    func save() {
+        // Create the meme
+        let memedImage = generateMemedImage()
+        let meme = Meme(topText: textField1.text!, bottomText: textField2.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // TODO: Hide toolbar and navbar
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        // TODO: Show toolbar and navbar
+        
+        return memedImage
+    }
 }
+
+
 
