@@ -11,9 +11,12 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +28,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField2.text = "BOTTOM"
         textField2.defaultTextAttributes = memeTextAttributes
         textField2.textAlignment = .center
+        shareButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,7 +75,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSAttributedString.Key.strokeColor: UIColor.black,
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth: -2.0
+        NSAttributedString.Key.strokeWidth: -3.0
     ]
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -103,6 +108,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imagePickerView.contentMode = .scaleAspectFit
             imagePickerView.image = pickedImage
+            shareButton.isEnabled = true
         }
         
         dismiss(animated: true, completion: nil)
@@ -116,12 +122,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func save() {
         // Create the meme
         let memedImage = generateMemedImage()
-        let meme = Meme(topText: textField1.text!, bottomText: textField2.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        _ = Meme(topText: textField1.text!, bottomText: textField2.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
     }
     
     func generateMemedImage() -> UIImage {
-        
-        // TODO: Hide toolbar and navbar
+        navBar.isHidden = true
+        toolBar.isHidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -129,10 +135,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        // TODO: Show toolbar and navbar
+        navBar.isHidden = false
+        toolBar.isHidden = false
         
         return memedImage
     }
+    
+    @IBAction func shareMeme(_ sender: UIButton) {
+        let memedImage = generateMemedImage()
+        let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        
+        activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool?, returnedItems: [Any]?, error: Error?) in
+            if completed! {
+                self.save()
+            }
+        }
+        
+        self.present(activityVC, animated: true, completion: nil)
+    }
+
+    
+
 }
 
 
