@@ -153,8 +153,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.present(activityVC, animated: true, completion: nil)
     }
-
     
+    
+    @IBAction func cancelButton(_ sender: UIButton) {
+        textField1.text = "TOP"
+        textField2.text = "BOTTOM"
+        self.imagePickerView.image = nil
+        shareButton.isEnabled = false
+    }
 
 }
 
