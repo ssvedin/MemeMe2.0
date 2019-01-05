@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="MemeMe" id="HJk-9m-f6f">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="action" id="8la-4d-4GL" userLabel="Share Button Item">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="8la-4d-4GL" userLabel="Share Button Item">
                                             <connections>
                                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="tbF-h1-GA0"/>
                                             </connections>
