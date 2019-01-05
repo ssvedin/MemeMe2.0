@@ -9,6 +9,8 @@
 import UIKit
 
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    
+    // MARK: UI Elements
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField1: UITextField!
@@ -17,6 +19,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    // MARK: View Set Up
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
     }
+    
+    // MARK: Keyboard Notifications
     
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -70,6 +76,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
     }
+    
+    // MARK: Text Fields
 
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
@@ -89,12 +97,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return true
     }
     
+    // MARK: Picking an image from Album
+    
     @IBAction func pickAnImageFromAlbum (_ sender: Any) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = .photoLibrary
         present(pickerController, animated: true, completion: nil)
     }
+    
+    // MARK: Picking an image from Camera
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
         
@@ -103,6 +115,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         pickerController.sourceType = .camera
         present(pickerController, animated: true, completion: nil)
     }
+    
+    // Selecting image
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -118,6 +132,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         dismiss(animated: true, completion: nil)
         
     }
+    
+    // MARK: Generating Meme
     
     func save() {
         // Create the meme
@@ -141,6 +157,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return memedImage
     }
     
+    // MARK: Sharing Meme
+    
     @IBAction func shareMeme(_ sender: UIBarButtonItem) {
         let memedImage = generateMemedImage()
         let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
@@ -153,6 +171,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         self.present(activityVC, animated: true, completion: nil)
     }
+    
+    // MARK: Resetting the Meme Editor
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         textField1.text = "TOP"
