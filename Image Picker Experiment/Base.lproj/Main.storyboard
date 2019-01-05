@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NZr-mo-5PJ">
-                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="579" id="de0-nX-k1u"/>
+                                    <constraint firstAttribute="height" constant="603" id="de0-nX-k1u"/>
                                 </constraints>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxq-GV-yTZ">
@@ -34,7 +34,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="aJQ-zE-LEG"/>
-                                    <barButtonItem title="Camera" id="Mib-NV-jlv">
+                                    <barButtonItem systemItem="camera" id="Mib-NV-jlv">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="VmC-sy-5Wn"/>
                                         </connections>
@@ -42,44 +42,34 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I7S-IT-H2m" userLabel="Text Field 1">
-                                <rect key="frame" x="16" y="161" width="343" height="30"/>
+                                <rect key="frame" x="16" y="181" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="88O-7P-TVE" userLabel="Text Field 2">
+                                <rect key="frame" x="16" y="495" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzQ-EW-btP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="MemeMe" id="HJk-9m-f6f">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="8la-4d-4GL">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BId-Oh-SPi">
-                                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Share"/>
-                                                <connections>
-                                                    <action selector="shareMeme:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tck-wf-OFo"/>
-                                                </connections>
-                                            </button>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="action" id="8la-4d-4GL" userLabel="Share Button Item">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="tbF-h1-GA0"/>
+                                            </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="a7Y-vx-2yM">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qwk-w8-0ul">
-                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Cancel"/>
-                                                <connections>
-                                                    <action selector="cancelButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WNP-A7-wv4"/>
-                                                </connections>
-                                            </button>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="gT7-q7-sgq" userLabel="Cancel Button Item">
+                                            <connections>
+                                                <action selector="cancelButton:" destination="BYZ-38-t0r" id="Gjt-X2-HEs"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="88O-7P-TVE" userLabel="Text Field 2">
-                                <rect key="frame" x="16" y="475" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -90,17 +80,16 @@
                             <constraint firstItem="I7S-IT-H2m" firstAttribute="centerX" secondItem="nzQ-EW-btP" secondAttribute="centerX" id="Cte-Je-Ayx"/>
                             <constraint firstItem="88O-7P-TVE" firstAttribute="trailing" secondItem="I7S-IT-H2m" secondAttribute="trailing" id="Ehk-a8-vog"/>
                             <constraint firstItem="Bxq-GV-yTZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JFV-oZ-LEI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="nzQ-EW-btP" secondAttribute="bottom" constant="-24" id="KJP-am-cK1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="nzQ-EW-btP" secondAttribute="bottom" constant="-44" id="KJP-am-cK1"/>
                             <constraint firstItem="I7S-IT-H2m" firstAttribute="top" secondItem="NZr-mo-5PJ" secondAttribute="top" constant="117" id="SAU-cj-54V"/>
                             <constraint firstItem="88O-7P-TVE" firstAttribute="leading" secondItem="I7S-IT-H2m" secondAttribute="leading" id="aNy-Xn-u1L"/>
                             <constraint firstItem="NZr-mo-5PJ" firstAttribute="top" secondItem="nzQ-EW-btP" secondAttribute="bottom" id="bni-1B-qwy"/>
                             <constraint firstItem="Bxq-GV-yTZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eZO-q7-0AS"/>
-                            <constraint firstItem="88O-7P-TVE" firstAttribute="bottom" secondItem="NZr-mo-5PJ" secondAttribute="bottom" constant="-118" id="hB6-9J-mK3"/>
+                            <constraint firstItem="88O-7P-TVE" firstAttribute="bottom" secondItem="NZr-mo-5PJ" secondAttribute="bottom" constant="-142" id="hB6-9J-mK3"/>
                             <constraint firstItem="88O-7P-TVE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jJp-Vv-SFA"/>
                             <constraint firstItem="NZr-mo-5PJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kNq-p8-2nz"/>
                             <constraint firstItem="NZr-mo-5PJ" firstAttribute="trailing" secondItem="Bxq-GV-yTZ" secondAttribute="trailing" id="nE8-za-xWh"/>
                             <constraint firstItem="Bxq-GV-yTZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="t3p-oV-1EW"/>
-                            <constraint firstItem="NZr-mo-5PJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="wda-ht-KY4"/>
                             <constraint firstItem="nzQ-EW-btP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-375" id="y3a-Aq-mUR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -109,7 +98,7 @@
                         <outlet property="cameraButton" destination="Mib-NV-jlv" id="76K-cY-ygn"/>
                         <outlet property="imageView" destination="NZr-mo-5PJ" id="2Tq-W4-gUM"/>
                         <outlet property="navBar" destination="nzQ-EW-btP" id="Dab-QV-g2d"/>
-                        <outlet property="shareButton" destination="BId-Oh-SPi" id="mt0-zT-mtL"/>
+                        <outlet property="shareButton" destination="8la-4d-4GL" id="uf0-Pk-fid"/>
                         <outlet property="textField1" destination="I7S-IT-H2m" id="KCJ-xc-fCZ"/>
                         <outlet property="textField2" destination="88O-7P-TVE" id="rVc-cn-k0d"/>
                         <outlet property="toolBar" destination="Bxq-GV-yTZ" id="sds-cN-eYK"/>

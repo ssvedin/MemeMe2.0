@@ -141,7 +141,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return memedImage
     }
     
-    @IBAction func shareMeme(_ sender: UIButton) {
+    @IBAction func shareMeme(_ sender: UIBarButtonItem) {
         let memedImage = generateMemedImage()
         let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
@@ -154,7 +154,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.present(activityVC, animated: true, completion: nil)
     }
     
-    @IBAction func cancelButton(_ sender: UIButton) {
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         textField1.text = "TOP"
         textField2.text = "BOTTOM"
         self.imageView.image = nil
