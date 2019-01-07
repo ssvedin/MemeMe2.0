@@ -24,14 +24,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField1.delegate = self
-        textField2.delegate = self
-        textField1.text = "TOP"
-        textField1.defaultTextAttributes = memeTextAttributes
-        textField1.textAlignment = .center
-        textField2.text = "BOTTOM"
-        textField2.defaultTextAttributes = memeTextAttributes
-        textField2.textAlignment = .center
+        bomttomTextField()
+        topTextField()
         shareButton.isEnabled = false
     }
     
@@ -78,6 +72,20 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     // MARK: Text Fields
+    
+    func topTextField() {
+        textField1.delegate = self
+        textField1.text = "TOP"
+        textField1.defaultTextAttributes = memeTextAttributes
+        textField1.textAlignment = .center
+    }
+    
+    func bomttomTextField() {
+        textField2.delegate = self
+        textField2.text = "BOTTOM"
+        textField2.defaultTextAttributes = memeTextAttributes
+        textField2.textAlignment = .center
+    }
 
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
