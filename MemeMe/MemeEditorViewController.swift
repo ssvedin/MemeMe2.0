@@ -24,8 +24,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bomttomTextField()
-        topTextField()
+        setUpTextField(textField: textField1, text: "TOP")
+        setUpTextField(textField: textField2, text: "BOTTOM")
         shareButton.isEnabled = false
     }
     
@@ -71,28 +71,21 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return keyboardSize.cgRectValue.height
     }
     
-    // MARK: Text Fields
+    // MARK: TextFields
     
-    func topTextField() {
-        textField1.delegate = self
-        textField1.text = "TOP"
-        textField1.defaultTextAttributes = memeTextAttributes
-        textField1.textAlignment = .center
+    func setUpTextField(textField: UITextField, text: String) {
+        let memeTextAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.strokeColor: UIColor.black,
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedString.Key.strokeWidth: -4.0
+        ]
+        
+        textField.delegate = self
+        textField.text = text
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
     }
-    
-    func bomttomTextField() {
-        textField2.delegate = self
-        textField2.text = "BOTTOM"
-        textField2.defaultTextAttributes = memeTextAttributes
-        textField2.textAlignment = .center
-    }
-
-    let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth: -3.0
-    ]
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "TOP" || textField.text == "BOTTOM" {
@@ -105,26 +98,26 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return true
     }
     
-    // MARK: Picking an image from Album
+    // MARK: Picking an image
     
     @IBAction func pickAnImageFromAlbum (_ sender: Any) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .photoLibrary
-        present(pickerController, animated: true, completion: nil)
+        pickAnImage(sender)
     }
-    
-    // MARK: Picking an image from Camera
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .camera
-        present(pickerController, animated: true, completion: nil)
+        pickAnImage(sender)
     }
     
-    // Selecting image
+    func pickAnImage(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        if  (sender as AnyObject).tag == 1 {
+            pickerController.sourceType = .camera
+        } else {
+            pickerController.sourceType = .photoLibrary
+        }
+        present(pickerController, animated: true, completion: nil)
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
