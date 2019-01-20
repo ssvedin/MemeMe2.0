@@ -62,9 +62,9 @@
 			children = (
 				04BE98D621D817E20010F6FA /* AppDelegate.swift */,
 				04BE98E821DDCBE60010F6FA /* Meme.swift */,
-				04BE98D821D817E20010F6FA /* MemeEditorViewController.swift */,
 				048041CF21F3D5B900FAE977 /* MemeTableViewController.swift */,
 				048041D121F3D5D200FAE977 /* MemeCollectionViewController.swift */,
+				04BE98D821D817E20010F6FA /* MemeEditorViewController.swift */,
 				04BE98DA21D817E20010F6FA /* Main.storyboard */,
 				04BE98DD21D817E50010F6FA /* Assets.xcassets */,
 				04BE98DF21D817E50010F6FA /* LaunchScreen.storyboard */,

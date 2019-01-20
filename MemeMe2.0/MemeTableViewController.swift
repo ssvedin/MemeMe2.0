@@ -17,10 +17,18 @@ class MemeTableViewController: UITableViewController {
     }
 
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.memes.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell")!
+        let meme = self.memes[(indexPath as NSIndexPath).row]
+        
+        cell.textLabel?.text = "\(meme.topText) + \(meme.bottomText)"
+        cell.imageView?.image = meme.memedImage
+        
+        return cell
     }
     
 }
