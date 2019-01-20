@@ -16,7 +16,6 @@ class MemeTableViewController: UITableViewController {
         return appDelegate.memes
     }
 
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
     }
@@ -30,5 +29,10 @@ class MemeTableViewController: UITableViewController {
         
         return cell
     }
+    
+    @IBAction func createMeme(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "createFromTable", sender: sender)
+    }
+    
     
 }

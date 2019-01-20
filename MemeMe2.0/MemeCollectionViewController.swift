@@ -22,4 +22,7 @@ class MemeCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func createMeme(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "createFromCollection", sender: sender)
+    }
 }
