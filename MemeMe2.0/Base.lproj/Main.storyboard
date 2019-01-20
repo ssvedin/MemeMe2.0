@@ -57,7 +57,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="createFromTable" id="vfQ-Xs-Df1"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="createFromTable" id="vfQ-Xs-Df1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Hk-fi-2c3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -166,7 +166,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="createFromCollection" id="mMt-zf-zVF"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="createFromCollection" id="mMt-zf-zVF"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3E-Nt-Ei1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,11 +182,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NZr-mo-5PJ">
-                                <rect key="frame" x="0.0" y="108" width="375" height="466"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzQ-EW-btP">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="MemeMe2.0" id="HJk-9m-f6f">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="8la-4d-4GL" userLabel="Share Button Item">
@@ -203,7 +203,7 @@
                                 </items>
                             </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxq-GV-yTZ">
-                                <rect key="frame" x="0.0" y="574" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="Album" id="KjZ-Qo-CFx" userLabel="Album">
                                         <connections>
@@ -219,13 +219,13 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="88O-7P-TVE" userLabel="Text Field 2">
-                                <rect key="frame" x="16" y="497" width="343" height="17"/>
+                                <rect key="frame" x="16" y="546" width="343" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I7S-IT-H2m" userLabel="Text Field 1">
-                                <rect key="frame" x="16" y="168" width="343" height="17"/>
+                                <rect key="frame" x="16" y="124" width="343" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -308,6 +308,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vfQ-Xs-Df1"/>
+        <segue reference="mMt-zf-zVF"/>
     </inferredMetricsTieBreakers>
 </document>
