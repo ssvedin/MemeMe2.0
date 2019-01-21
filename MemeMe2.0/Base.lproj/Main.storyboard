@@ -162,6 +162,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="flowLayout" destination="HcV-ZJ-FsO" id="aG1-EC-pPJ"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="createFromCollection" id="mMt-zf-zVF"/>
                     </connections>
                 </collectionViewController>
