@@ -181,15 +181,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.present(activityVC, animated: true, completion: nil)
     }
     
+    @IBAction func resetButton(_ sender: UIBarButtonItem) {
+         textField1.text = "TOP"
+         textField2.text = "BOTTOM"
+         self.imageView.image = nil
+         shareButton.isEnabled = false
+    }
+    
     // MARK: Resetting the Meme Editor
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        /*
-        textField1.text = "TOP"
-        textField2.text = "BOTTOM"
-        self.imageView.image = nil
-        shareButton.isEnabled = false
-        */
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
