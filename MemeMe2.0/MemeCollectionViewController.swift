@@ -16,10 +16,22 @@ class MemeCollectionViewController: UICollectionViewController {
         return appDelegate.memes
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.memes.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
+            let meme = self.memes[(indexPath as NSIndexPath).row]
+            
+            cell.memeImageView?.image = meme.memedImage
+            
+            return cell
     }
 
     @IBAction func createMeme(_ sender: UIBarButtonItem) {
