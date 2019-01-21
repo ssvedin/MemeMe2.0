@@ -12,4 +12,11 @@ class MemeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var memeImageView: UIImageView!
     
+    func setUpImage() {
+        let imageSize = CGRect(x: 0, y: 0, width: 100.0, height: 100.0)
+        memeImageView.frame = imageSize
+        memeImageView.contentMode = .scaleAspectFill
+        memeImageView.clipsToBounds = true
+    }
+    
 }
