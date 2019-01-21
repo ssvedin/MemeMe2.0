@@ -50,6 +50,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="memeTableView" destination="qsU-5X-HQr" id="Li4-Z7-W7F"/>
+                        <outlet property="tableView" destination="qsU-5X-HQr" id="xom-xA-Hyk"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="createFromTable" id="vfQ-Xs-Df1"/>
                     </connections>
                 </tableViewController>

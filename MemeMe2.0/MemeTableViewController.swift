@@ -10,10 +10,17 @@ import UIKit
 
 class MemeTableViewController: UITableViewController {
 
+    @IBOutlet var memeTableView: UITableView!
+    
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        memeTableView.rowHeight = CGFloat(100.0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
