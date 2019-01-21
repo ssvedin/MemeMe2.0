@@ -9,6 +9,8 @@
 import UIKit
 
 class MemeTableViewController: UITableViewController {
+    
+    // MARK: Properties and Outlets
 
     @IBOutlet var memeTableView: UITableView!
     
@@ -17,6 +19,8 @@ class MemeTableViewController: UITableViewController {
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,8 @@ class MemeTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
+    // MARK: Table View Data Source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
@@ -43,11 +49,15 @@ class MemeTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: Go to Meme Detail View
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = self.memes[(indexPath as NSIndexPath).row]
         self.navigationController!.pushViewController(detailController, animated: true)
     }
+    
+    // MARK: Add button to Meme Editor
     
     @IBAction func createMeme(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "createFromTable", sender: sender)

@@ -9,6 +9,8 @@
 import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
+    
+    // MARK: Properties and Outlets
 
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -17,6 +19,8 @@ class MemeCollectionViewController: UICollectionViewController {
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +39,8 @@ class MemeCollectionViewController: UICollectionViewController {
         collectionView.reloadData()
     }
     
+    // MARK: Collection View Data Source
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.memes.count
     }
@@ -49,12 +55,16 @@ class MemeCollectionViewController: UICollectionViewController {
             return cell
     }
     
+    // MARK: Go to Meme Detail View
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = self.memes[(indexPath as NSIndexPath).row]
         self.navigationController!.pushViewController(detailController, animated: true)
         
     }
+    
+    // MARK: Add button to Meme Editor
 
     @IBAction func createMeme(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "createFromCollection", sender: sender)

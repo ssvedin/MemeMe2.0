@@ -10,7 +10,7 @@ import UIKit
 
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    // MARK: UI Elements
+    // MARK: Outlets
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField1: UITextField!
@@ -20,7 +20,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
-    // MARK: View Set Up
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,6 +173,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool?, returnedItems: [Any]?, error: Error?) in
             if completed! {
                 self.save()
+                // Dismiss the Editor after sharing
                 self.navigationController?.popViewController(animated: true)
                 self.dismiss(animated: true, completion: nil)
             }
@@ -181,6 +182,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.present(activityVC, animated: true, completion: nil)
     }
     
+    // MARK: Resetting the Meme Editor
+    
     @IBAction func resetButton(_ sender: UIBarButtonItem) {
          textField1.text = "TOP"
          textField2.text = "BOTTOM"
@@ -188,7 +191,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
          shareButton.isEnabled = false
     }
     
-    // MARK: Resetting the Meme Editor
+    // MARK: Canceling the Editor and going back to Sent Memes
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
