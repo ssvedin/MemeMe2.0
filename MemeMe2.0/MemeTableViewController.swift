@@ -49,6 +49,20 @@ class MemeTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: Delete Sent Meme
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.memes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     // MARK: Go to Meme Detail View
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -62,6 +76,5 @@ class MemeTableViewController: UITableViewController {
     @IBAction func createMeme(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "createFromTable", sender: sender)
     }
-    
     
 }
