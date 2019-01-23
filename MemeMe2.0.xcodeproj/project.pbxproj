@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0444829721F829B100CF5A6E /* impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0444829621F829B100CF5A6E /* impact.ttf */; };
 		048041D021F3D5B900FAE977 /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048041CF21F3D5B900FAE977 /* MemeTableViewController.swift */; };
 		048041D221F3D5D200FAE977 /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048041D121F3D5D200FAE977 /* MemeCollectionViewController.swift */; };
 		048041D821F62EEA00FAE977 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048041D721F62EEA00FAE977 /* MemeCollectionViewCell.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0444829621F829B100CF5A6E /* impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = impact.ttf; sourceTree = "<group>"; };
 		048041CF21F3D5B900FAE977 /* MemeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
 		048041D121F3D5D200FAE977 /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
 		048041D721F62EEA00FAE977 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -47,11 +49,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0444829521F8290F00CF5A6E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0444829621F829B100CF5A6E /* impact.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		04BE98CA21D817E20010F6FA = {
 			isa = PBXGroup;
 			children = (
 				04BE98D521D817E20010F6FA /* MemeMe2.0 */,
 				04BE98D421D817E20010F6FA /* Products */,
+				0444829521F8290F00CF5A6E /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0444829721F829B100CF5A6E /* impact.ttf in Resources */,
 				04BE98E121D817E50010F6FA /* LaunchScreen.storyboard in Resources */,
 				04BE98DE21D817E50010F6FA /* Assets.xcassets in Resources */,
 				04BE98DC21D817E20010F6FA /* Main.storyboard in Resources */,
