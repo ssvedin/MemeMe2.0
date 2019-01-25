@@ -257,16 +257,22 @@
                                             <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="8SN-Xq-dbF"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aJQ-zE-LEG"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rXT-9P-fSf"/>
                                     <barButtonItem tag="1" systemItem="camera" id="Mib-NV-jlv">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="VmC-sy-5Wn"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aJQ-zE-LEG"/>
+                                    <barButtonItem title="Font" style="plain" id="djL-dS-QHE">
+                                        <connections>
+                                            <action selector="changeFont:" destination="BYZ-38-t0r" id="P0c-QD-2Di"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="88O-7P-TVE" userLabel="Text Field 2">
-                                <rect key="frame" x="16" y="546" width="343" height="17"/>
+                                <rect key="frame" x="16" y="545" width="343" height="18"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -277,9 +283,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03B-2y-jl1">
+                                <rect key="frame" x="0.0" y="446" width="375" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="03B-2y-jl1" firstAttribute="trailing" secondItem="Bxq-GV-yTZ" secondAttribute="trailing" id="0R0-x0-GSY"/>
                             <constraint firstItem="NZr-mo-5PJ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="1gi-Ne-9rC"/>
                             <constraint firstItem="Bxq-GV-yTZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-44" id="45h-Bh-wg5"/>
                             <constraint firstItem="NZr-mo-5PJ" firstAttribute="trailing" secondItem="nzQ-EW-btP" secondAttribute="trailing" id="5AA-se-XUl"/>
@@ -304,7 +315,10 @@
                             <constraint firstItem="Bxq-GV-yTZ" firstAttribute="top" secondItem="88O-7P-TVE" secondAttribute="bottom" constant="20" id="lc5-mP-76y"/>
                             <constraint firstItem="NZr-mo-5PJ" firstAttribute="trailing" secondItem="Bxq-GV-yTZ" secondAttribute="trailing" id="nE8-za-xWh"/>
                             <constraint firstItem="NZr-mo-5PJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="otn-en-LYi"/>
+                            <constraint firstItem="03B-2y-jl1" firstAttribute="leading" secondItem="Bxq-GV-yTZ" secondAttribute="leading" id="pB2-fU-dtU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="03B-2y-jl1" secondAttribute="bottom" constant="5" id="pd6-dB-HcO"/>
                             <constraint firstItem="Bxq-GV-yTZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="t3p-oV-1EW"/>
+                            <constraint firstItem="03B-2y-jl1" firstAttribute="centerY" secondItem="88O-7P-TVE" secondAttribute="centerY" id="wDm-Zx-vA8"/>
                             <constraint firstItem="I7S-IT-H2m" firstAttribute="top" secondItem="nzQ-EW-btP" secondAttribute="bottom" constant="20" id="wj2-rD-K4Q"/>
                             <constraint firstItem="Bxq-GV-yTZ" firstAttribute="top" secondItem="88O-7P-TVE" secondAttribute="bottom" constant="60" id="x8b-GG-PpT"/>
                             <constraint firstItem="Bxq-GV-yTZ" firstAttribute="top" secondItem="88O-7P-TVE" secondAttribute="bottom" constant="20" id="zjU-ZO-yRu"/>
@@ -341,6 +355,7 @@
                     </view>
                     <connections>
                         <outlet property="cameraButton" destination="Mib-NV-jlv" id="76K-cY-ygn"/>
+                        <outlet property="fontPickerView" destination="03B-2y-jl1" id="cNa-dZ-OIC"/>
                         <outlet property="imageView" destination="NZr-mo-5PJ" id="2Tq-W4-gUM"/>
                         <outlet property="navBar" destination="nzQ-EW-btP" id="Dab-QV-g2d"/>
                         <outlet property="shareButton" destination="8la-4d-4GL" id="uf0-Pk-fid"/>

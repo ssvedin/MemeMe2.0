@@ -20,13 +20,22 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    // Outlet and properties for Font Picker View
+   @IBOutlet weak var fontPickerView: UIPickerView!
+    var fontPickerData: [String] = [String]()
+    var selectedFont: String = "Impact"
+    var pickerSelection = ""
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTextField(textField: textField1, text: "TOP")
         setUpTextField(textField: textField2, text: "BOTTOM")
+        setUpFontPickerView()
         shareButton.isEnabled = false
+        fontPickerView.isHidden = true
+        pickerSelection = fontPickerData[0]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +87,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let memeTextAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.strokeColor: UIColor.black,
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "Impact", size: 40)!,
+            NSAttributedString.Key.font: UIFont(name: selectedFont, size: 40)!,
             NSAttributedString.Key.strokeWidth: -4.0
         ]
         
@@ -189,6 +198,19 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
          textField2.text = "BOTTOM"
          self.imageView.image = nil
          shareButton.isEnabled = false
+    }
+    
+    // MARK: Change Text Fields Font
+    
+    func selectFont(fontName: String) {
+        textField1.font = UIFont(name: fontName, size: 40)!
+        textField2.font = UIFont(name: fontName, size: 40)!
+        selectedFont = fontName
+    }
+    
+    @IBAction func changeFont(_ sender: Any) {
+        fontPickerView.isHidden = false
+        selectFont(fontName: pickerSelection)
     }
     
     // MARK: Canceling the Editor and going back to Sent Memes
