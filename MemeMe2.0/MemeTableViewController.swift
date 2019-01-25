@@ -43,7 +43,6 @@ class MemeTableViewController: UITableViewController {
         let meme = self.memes[(indexPath as NSIndexPath).row]
 
         cell.textLabel?.text = "\(meme.topText)" + " " + "\(meme.bottomText)"
-        cell.setUpImage()
         cell.imageView?.image = meme.memedImage
         
         return cell
@@ -70,6 +69,7 @@ class MemeTableViewController: UITableViewController {
         detailController.meme = self.memes[(indexPath as NSIndexPath).row]
         self.navigationController!.pushViewController(detailController, animated: true)
     }
+    
     
     // MARK: Add button to Meme Editor
     

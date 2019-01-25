@@ -14,15 +14,5 @@ class MemeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tableImageView: UIImageView!
     
-    // MARK: Cell Customization
-    
-    func setUpImage() {
-        let imageSize = CGRect(x: 0, y: 0, width: 100.0, height: 100.0)
-        tableImageView.frame = imageSize
-        tableImageView.contentMode = .scaleToFill
-        tableImageView.clipsToBounds = true
-    }
- 
-
 
 }
