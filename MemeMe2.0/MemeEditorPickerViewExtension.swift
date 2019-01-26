@@ -32,6 +32,7 @@ extension MemeEditorViewController: UIPickerViewDelegate, UIPickerViewDataSource
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickerSelection = fontPickerData[row]
+        changeFont(selectedFont)
         fontPickerView.isHidden = true
     }
     
