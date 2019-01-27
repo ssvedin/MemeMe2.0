@@ -70,7 +70,6 @@ class MemeTableViewController: UITableViewController {
         self.navigationController!.pushViewController(detailController, animated: true)
     }
     
-    
     // MARK: Add button to Meme Editor
     
     @IBAction func createMeme(_ sender: UIBarButtonItem) {

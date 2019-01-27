@@ -13,14 +13,5 @@ class MemeCollectionViewCell: UICollectionViewCell {
     // MARK: Outlets
     
     @IBOutlet weak var memeImageView: UIImageView!
-    
-    // MARK: Cell Customization
-    
-    func setUpImage() {
-        let imageSize = CGRect(x: 0, y: 0, width: 100.0, height: 100.0)
-        memeImageView.frame = imageSize
-        memeImageView.contentMode = .scaleAspectFill
-        memeImageView.clipsToBounds = true
-    }
-    
+
 }

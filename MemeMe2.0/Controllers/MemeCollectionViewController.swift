@@ -49,10 +49,8 @@ class MemeCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
             let meme = self.memes[(indexPath as NSIndexPath).row]
         
-        cell.setUpImage()
         cell.memeImageView?.image = meme.memedImage
-        
-            return cell
+        return cell
     }
     
     // MARK: Go to Meme Detail View
@@ -61,7 +59,6 @@ class MemeCollectionViewController: UICollectionViewController {
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = self.memes[(indexPath as NSIndexPath).row]
         self.navigationController!.pushViewController(detailController, animated: true)
-        
     }
     
     // MARK: Add button to Meme Editor
