@@ -230,16 +230,22 @@
                                             <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="8SN-Xq-dbF"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rXT-9P-fSf"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kmx-ZF-dlL"/>
                                     <barButtonItem tag="1" systemItem="camera" id="Mib-NV-jlv">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="VmC-sy-5Wn"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aJQ-zE-LEG"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rXT-9P-fSf"/>
                                     <barButtonItem title="Font" style="plain" id="djL-dS-QHE">
                                         <connections>
                                             <action selector="changeFont:" destination="BYZ-38-t0r" id="P0c-QD-2Di"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aJQ-zE-LEG"/>
+                                    <barButtonItem title="Reset" id="5cJ-YW-PQw" userLabel="Reset Button Item">
+                                        <connections>
+                                            <action selector="resetButton:" destination="BYZ-38-t0r" id="zBw-kk-fJk"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -256,30 +262,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03B-2y-jl1">
-                                <rect key="frame" x="0.0" y="641" width="414" height="216"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="MMv-4i-lSj"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Xvg-oI-b3o"/>
-                                </connections>
-                            </pickerView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzQ-EW-btP">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="MemeMe2.0" id="HJk-9m-f6f">
-                                        <leftBarButtonItems>
-                                            <barButtonItem systemItem="action" id="8la-4d-4GL" userLabel="Share Button Item">
-                                                <connections>
-                                                    <action selector="shareMeme:" destination="BYZ-38-t0r" id="tbF-h1-GA0"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Reset" id="5cJ-YW-PQw" userLabel="Reset Button Item">
-                                                <connections>
-                                                    <action selector="resetButton:" destination="BYZ-38-t0r" id="zBw-kk-fJk"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </leftBarButtonItems>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="8la-4d-4GL" userLabel="Share Button Item">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="tbF-h1-GA0"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="gT7-q7-sgq" userLabel="Cancel Button Item">
                                             <connections>
                                                 <action selector="cancelButton:" destination="BYZ-38-t0r" id="Gjt-X2-HEs"/>
@@ -288,6 +279,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03B-2y-jl1">
+                                <rect key="frame" x="0.0" y="641" width="414" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="MMv-4i-lSj"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Xvg-oI-b3o"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
