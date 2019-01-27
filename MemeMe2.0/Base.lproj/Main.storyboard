@@ -59,7 +59,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="memeTableView" destination="qsU-5X-HQr" id="Li4-Z7-W7F"/>
-                        <outlet property="tableView" destination="qsU-5X-HQr" id="xom-xA-Hyk"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="createFromTable" id="vfQ-Xs-Df1"/>
                     </connections>
                 </tableViewController>
@@ -378,6 +377,6 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vfQ-Xs-Df1"/>
+        <segue reference="mMt-zf-zVF"/>
     </inferredMetricsTieBreakers>
 </document>
