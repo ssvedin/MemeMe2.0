@@ -35,11 +35,5 @@ extension MemeEditorViewController: UIPickerViewDelegate, UIPickerViewDataSource
         changeFont(selectedFont)
         fontPickerView.isHidden = true
     }
-    
- 
-    
-
- 
-
 
 }

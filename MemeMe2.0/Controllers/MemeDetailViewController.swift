@@ -22,4 +22,5 @@ class MemeDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         self.imageView!.image = meme.memedImage
     }
+    
 }
