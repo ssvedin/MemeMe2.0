@@ -15,7 +15,7 @@ extension MemeEditorViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func setUpFontPickerView() {
         fontPickerView.delegate = self
         fontPickerView.dataSource = self
-        fontPickerData = ["Impact", "Copperplate", "Noteworthy-Bold", "Chalkduster", "HoeflerText-BlackItalic"]
+        fontPickerData = ["Impact", "Copperplate", "MyanmarSangamMN-Bold", "Noteworthy-Bold", "HiraginoSans-W6", "MarkerFelt-Wide", "AmericanTypewriter-CondensedBold", "HoeflerText-BlackItalic"]
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
