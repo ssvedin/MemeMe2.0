@@ -24,7 +24,7 @@ class MemeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        memeTableView.rowHeight = CGFloat(100.0)
+        memeTableView.rowHeight = CGFloat(110.0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,8 +42,8 @@ class MemeTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableViewCell", for: indexPath) as! MemeTableViewCell
         let meme = self.memes[(indexPath as NSIndexPath).row]
 
-        cell.textLabel?.text = "\(meme.topText)" + " " + "\(meme.bottomText)"
-        cell.imageView?.image = meme.memedImage
+        cell.memeLabel?.text = "\(meme.topText)" + " " + "\(meme.bottomText)"
+        cell.tableImageView?.image = meme.memedImage
         
         return cell
     }

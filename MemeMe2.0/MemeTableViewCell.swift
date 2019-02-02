@@ -13,5 +13,6 @@ class MemeTableViewCell: UITableViewCell {
     // MARK: Outlets
 
     @IBOutlet weak var tableImageView: UIImageView!
-    
+    @IBOutlet weak var memeLabel: UILabel!
+
 }
